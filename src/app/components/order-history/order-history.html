@@ -1,0 +1,57 @@
+<div class="card">
+
+    <h2>Order History</h2>
+
+    <div class="stats-box">
+
+        <div class="stat-card">
+            <h3>{{ totalOrders }}</h3>
+            <p>Total Orders</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>${{ totalSpent }}</h3>
+            <p>Total Spent</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>${{ averageOrder }}</h3>
+            <p>Average Order</p>
+        </div>
+
+    </div>
+
+    <select (change)="filterOrders($event)">
+        <option value="all">All Orders</option>
+        <option value="pending">Pending</option>
+        <option value="processing">Processing</option>
+        <option value="shipped">Shipped</option>
+        <option value="delivered">Delivered</option>
+        <option value="cancelled">Cancelled</option>
+    </select>
+
+    <div *ngIf="orders.length === 0" class="empty-orders">
+        No orders yet
+    </div>
+
+    <div class="order-card" *ngFor="let order of orders">
+
+        <h4>Order #{{ order.orderId }}</h4>
+
+        <p>Date: {{ order.orderDate | date }}</p>
+
+        <p>Total: {{ order.total | currency }}</p>
+
+        <p>Status:
+            <span class="status">
+                {{ order.status }}
+            </span>
+        </p>
+
+        <button *ngIf="order.status === 'pending'" (click)="cancelOrder(order.orderId)">
+            Cancel Order
+        </button>
+
+    </div>
+
+</div>

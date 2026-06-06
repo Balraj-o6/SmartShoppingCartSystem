@@ -1,0 +1,272 @@
+/* ==========================
+   Theme Variables
+========================== */
+
+:host {
+    --primary-color: #6366f1;
+    --secondary-color: #8b5cf6;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+
+    --border-color: #e2e8f0;
+
+    --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+    --radius: 18px;
+}
+
+body {
+    background: var(--bg-color);
+}
+
+/* ==========================
+   Page Title
+========================== */
+
+.page-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+/* ==========================
+   Main Card
+========================== */
+
+.customer-profile-card {
+    max-width: 750px;
+    margin: auto;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.customer-profile-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ==========================
+   Membership Themes
+========================== */
+
+.premium-member {
+    background:
+        linear-gradient(135deg,
+            #fff8e1,
+            #ffecb3);
+    border: 2px solid #f59e0b;
+}
+
+.standard-member {
+    background:
+        linear-gradient(135deg,
+            #f8fafc,
+            #e2e8f0);
+    border: 2px solid #94a3b8;
+}
+
+/* ==========================
+   Status Styles
+========================== */
+
+.vip-customer {
+    box-shadow:
+        0 0 25px rgba(245, 158, 11, 0.3);
+}
+
+.new-customer {
+    border-left: 6px solid var(--success-color);
+}
+
+.active-member {
+    position: relative;
+}
+
+.active-member::before {
+    content: "● Active";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: var(--success-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ==========================
+   Customer Name
+========================== */
+
+.customer-name {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.customer-name.editing {
+    font-weight: 700;
+}
+
+/* ==========================
+   Profile Image
+========================== */
+
+.profile-image {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 1rem auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================
+   Details
+========================== */
+
+.profile-details {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.profile-details p {
+    margin: 8px 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* ==========================
+   Progress Bar
+========================== */
+
+.progress-bar {
+    width: 100%;
+    height: 14px;
+    background: #e5e7eb;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background:
+        linear-gradient(90deg,
+            var(--primary-color),
+            var(--secondary-color));
+    transition: width 0.5s ease;
+}
+
+/* ==========================
+   Form
+========================== */
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 1rem;
+}
+
+.form-section input {
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-section input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.form-section input:disabled {
+    background: #f1f5f9;
+    cursor: not-allowed;
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: none;
+    padding: 12px 22px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-success {
+    background: var(--success-color);
+    color: white;
+}
+
+.btn-secondary {
+    background: #64748b;
+    color: white;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==========================
+   Edit Mode
+========================== */
+
+.edit-mode {
+    border-color: var(--primary-color);
+}
+
+.profile-complete {
+    position: relative;
+}
+
+.profile-complete::after {
+    content: "✓ Profile Complete";
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    color: var(--success-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+}

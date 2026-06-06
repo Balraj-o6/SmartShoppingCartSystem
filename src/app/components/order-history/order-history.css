@@ -1,0 +1,38 @@
+.stats-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background: #eef2ff;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.order-card {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.order-card button {
+    margin-top: 10px;
+    background: #ef4444;
+    color: white;
+    padding: 10px 15px;
+}
+
+.status {
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+.empty-orders {
+    margin-top: 20px;
+    text-align: center;
+    color: gray;
+}

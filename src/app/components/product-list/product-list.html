@@ -1,0 +1,48 @@
+<div class="card">
+
+    <h2>Products</h2>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search products..." [(ngModel)]="searchText" (input)="searchProducts()" />
+    </div>
+
+    <div class="category-buttons">
+        <button (click)="loadAllProducts()">All</button>
+
+        <button *ngFor="let category of categories" (click)="filterCategory(category)">
+            {{ category }}
+        </button>
+    </div>
+
+    <button class="featured-btn" (click)="showFeaturedProducts()">
+        Show Featured Products
+    </button>
+
+    <div class="product-grid">
+
+        <div class="product-card" *ngFor="let product of products">
+
+            <img [src]="product.imageUrl || 'https://via.placeholder.com/150'" alt="product" />
+
+            <h3>{{ product.name }}</h3>
+
+            <p>{{ product.description }}</p>
+
+            <div class="price-stock">
+                <span>${{ product.price }}</span>
+                <span>Stock: {{ product.stock }}</span>
+            </div>
+
+            <div class="rating">
+                ⭐ {{ product.rating }}
+            </div>
+
+            <button class="add-btn" [disabled]="product.stock === 0" (click)="addToCart(product)">
+                Add To Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

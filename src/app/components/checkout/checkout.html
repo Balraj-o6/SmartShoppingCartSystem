@@ -1,0 +1,99 @@
+<div class="checkout-container">
+
+    <h1>Checkout</h1>
+
+    <div class="checkout-grid">
+
+        <!-- Customer Information -->
+
+        <div class="customer-form">
+
+            <h2>Customer Information</h2>
+
+            <input [(ngModel)]="shippingInfo.fullName" placeholder="Full Name">
+
+            <input [(ngModel)]="shippingInfo.email" placeholder="Email">
+
+            <input [(ngModel)]="shippingInfo.phone" placeholder="Phone">
+
+            <input [(ngModel)]="shippingInfo.address" placeholder="Address">
+
+            <input [(ngModel)]="shippingInfo.city" placeholder="City">
+
+            <input [(ngModel)]="shippingInfo.state" placeholder="State">
+
+            <input [(ngModel)]="shippingInfo.zipCode" placeholder="Zip Code">
+
+            <h3>Payment Method</h3>
+
+            <select [(ngModel)]="paymentMethod">
+
+                <option>
+                    Credit Card
+                </option>
+
+                <option>
+                    Debit Card
+                </option>
+
+                <option>
+                    UPI
+                </option>
+
+                <option>
+                    Cash On Delivery
+                </option>
+
+            </select>
+
+            <h3>Order Notes</h3>
+
+            <textarea rows="5" [(ngModel)]="orderNotes">
+            </textarea>
+
+        </div>
+
+        <!-- Summary -->
+
+        <div class="summary-card">
+
+            <h2>Order Summary</h2>
+
+            <div *ngFor="let item of cartItems">
+
+                <p>
+                    {{item.product.name}}
+                    x
+                    {{item.quantity}}
+                </p>
+
+            </div>
+
+            <hr>
+
+            <p>
+                Subtotal:
+                ₹{{subtotal}}
+            </p>
+
+            <p>
+                Tax:
+                ₹{{tax}}
+            </p>
+
+            <h3>
+                Total:
+                ₹{{total}}
+            </h3>
+
+            <button class="place-order-btn" (click)="placeOrder()">
+
+                Place Order
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

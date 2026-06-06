@@ -1,0 +1,52 @@
+<h1 class="page-title">Customer Profile</h1>
+
+<div class="customer-profile-card" [class.edit-mode]="isEditMode" [class.profile-complete]="isProfileComplete"
+    [class.vip-customer]="customer.loyaltyPoints > 1000" [class.new-customer]="customer.totalOrders < 5"
+    [class.active-member]="customer.isActive" [class.premium-member]="customer.membershipLevel === 'Premium'"
+    [class.standard-member]="customer.membershipLevel !== 'Premium'">
+
+    <h2 class="customer-name" [class.editing]="isEditMode">
+        {{ customer.firstName }}
+        {{ customer.lastName }}
+    </h2>
+
+    <img class="profile-image" [src]="customer.profileImageUrl || defaultProfileImage" alt="Customer Profile">
+
+    <div class="profile-details">
+        <p>{{ customer.email }}</p>
+        <p>{{ customer.membershipLevel }}</p>
+        <p>{{ customer.loyaltyPoints }} points</p>
+        <p>{{ customer.joinDate | date:'fullDate' }}</p>
+        <p>Orders: {{ customer.totalOrders }}</p>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="(customer.loyaltyPoints / 2000) * 100"></div>
+    </div>
+
+    <hr>
+
+    <div class="form-section">
+        <input [(ngModel)]="customer.firstName" [disabled]="!isEditMode" maxlength="50" placeholder="First Name">
+
+        <input [(ngModel)]="customer.lastName" [disabled]="!isEditMode" placeholder="Last Name">
+
+        <input [type]="showEmailAsText ? 'text' : 'email'" [(ngModel)]="customer.email" [disabled]="!isEditMode"
+            placeholder="Email Address">
+    </div>
+
+    <div class="button-group">
+        <button class="btn btn-primary" (click)="toggleEditMode()">
+            {{ isEditMode ? 'Editing' : 'Edit Profile' }}
+        </button>
+
+        <button class="btn btn-success" (click)="saveProfile()" [disabled]="!isFormValid()">
+            Save
+        </button>
+
+        <button class="btn btn-secondary" (click)="cancelEdit()">
+            Cancel
+        </button>
+    </div>
+
+</div>
